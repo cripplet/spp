@@ -6,20 +6,32 @@ Scheduler Plus Plus -- basic C++ scheduler
 Usage --
 
 ```
-#include <memory>		// std::shared_ptr
+// std::shared_ptr
+#include <memory>
 
 #include "scheduling.h"
 #include "calendar.h"
 
 int main() {
-	std::shared_ptr<Engine> e (new Engine());			// an engine to be run in the background during execution
-	std::shared_ptr<Calendar> cal_e (new Calendar(60, p));		// schedule the engine to be run at 60Hz
-	std::shared_ptr<SchedulingEngine> s (new SchedulingEngine());	// create a schedular
+	// an engine to be run in the background during execution
+	std::shared_ptr<Engine> e (new Engine());
+
+	// schedule the engine to be run at 60Hz
+	std::shared_ptr<Calendar> cal_e (new Calendar(60, p));
+
+	// create a schedular
+	std::shared_ptr<SchedulingEngine> s (new SchedulingEngine());
+
 	s->add_calendar(cal_t);
 
-	s->ignite();							// start the schedular
-	s->cycle();							// placeholder function for future expansion
-	s->shutdown();							// signal to the schedular to call e->shutdown()
+	// start the scheduler
+	s->ignite();
+
+	// placeholder function for future expansion
+	s->cycle();							
+
+	// signal to the scheduler to call e->shutdown()
+	s->shutdown();
 
 	return(0);
 }
@@ -38,10 +50,15 @@ Bonus: a Makefile!
 
 ```
 CC=g++
-CFLAGS=-Wall -Werror -O3 -std=c++11					# yadda yadda yadda beware -O3 optimizations and threading
+
+# yadda yadda yadda beware -O3 optimizations and threading
+CFLAGS=-Wall -Werror -O3 -std=c++11
+
 LIBS=-lm -lpthread
 
-SOURCES=*cc								# remember to add all sources from subdirectories as well here
+# remember to add all sources from subdirectories as well here
+SOURCES=*cc
+
 OBJECTS=$(SOURCES:.cc=.o)
 
 EXECUTABLE=spp.app
@@ -51,8 +68,9 @@ all: $(SOURCES) $(EXECUTABLE)
 $(EXECUTABLE): $(OBJECTS)
 	$(CC) $(CFLAGS) $(OBJECTS) -o $@ $(LIBS)
 
+# remember to run unit tests
 test: clean $(EXECUTABLE)
-	./$(EXECUTABLE) --test						# remember to run unit tests
+	./$(EXECUTABLE) --test
 
 clean:
 	rm -f $(EXECUTABLE) *.o
