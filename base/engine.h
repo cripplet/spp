@@ -8,16 +8,16 @@
  *	3) the shutdown sequence
  */
 
-enum status_codes { UNINITIALIZED, INITIALIZED, RUNNING, STOPPED };
+enum status_code { UNINITIALIZED, INITIALIZED, RUNNING, STOPPED };
 
 class Engine {
 	public:
 		Engine();
 		~Engine();
 
-		void ignite();
-		void cycle();
-		void shutdown();
+		virtual void ignite();
+		virtual void cycle();
+		virtual void shutdown();
 
 		int get_status();
 		int get_signal();
