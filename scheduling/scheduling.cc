@@ -6,7 +6,7 @@ SchedulingEngine::SchedulingEngine() : Engine() {}
 SchedulingEngine::~SchedulingEngine() {}
 
 void SchedulingEngine::add_calendar(const std::shared_ptr<Calendar>& calendar) {
-	if(this->status < RUNNING) {
+	if(this->get_status() < status_code::RUNNING) {
 		this->calendars.push_back(calendar);
 	}
 }
@@ -16,12 +16,6 @@ void SchedulingEngine::ignite() {
 		std::shared_ptr<std::thread> t (new std::thread(&Calendar::run, *i));
 		this->threads.push_back(t);
 	}
-/*
-	for(uint32_t i = 0; i < this->calendars.size(); i++) {
-		std::shared_ptr<std::thread> t (new std::thread(&Calendar::run, this->calendars.at(i)));
-		this->threads.push_back(t);
-	}
-*/
 	Engine::ignite();
 }
 
