@@ -5,6 +5,10 @@
 
 #include "../base/engine.h"
 
+/**
+ * Task abstraction layer for the scheduler -- each calendar references an engine and the frequency at which the engine should operate at
+ */
+
 class Calendar {
 	public:
 		// cf. http://bit.ly/1nK6RIb
@@ -18,7 +22,9 @@ class Calendar {
 		float timestep;			// time in seconds between each step
 		std::shared_ptr<Engine> engine;
 
-		// run engine.cycle() until outside signal is received
+		/**
+		 * run engine->cycle() until outside signal is received
+		 */
 		int signal;
 };
 

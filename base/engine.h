@@ -22,7 +22,7 @@ class Engine {
 		int get_status();
 		int get_signal();
 
-	protected:
+	private:
 		int status;
 
 		/**

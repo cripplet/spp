@@ -8,6 +8,10 @@
 #include "../base/engine.h"
 #include "calendar.h"
 
+/**
+ * Holds in memory a list of calendars -- upon call to .ignite(), spawns one thread per calendar and runs the engines
+ */
+
 class SchedulingEngine : public Engine {
 	public:
 		SchedulingEngine();
