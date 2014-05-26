@@ -12,7 +12,10 @@ Calendar::Calendar(float frequency, const std::shared_ptr<Engine>& engine) : eng
 }
 Calendar::~Calendar() {}
 
+const std::shared_ptr<Engine>& Calendar::get_engine() { return(this->engine); }
+
 void Calendar::run() {
+	this->engine->ignite();
 	clock_t timekeeper;
 	float elapsed_time;
 	while(this->signal) {
@@ -29,9 +32,9 @@ void Calendar::run() {
 			std::this_thread::sleep_for(std::chrono::duration<float>(this->timestep - elapsed_time));
 		}
 	}
+	this->engine->shutdown();
 }
 
 void Calendar::finish() {
 	this->signal = 0;
-	this->engine->shutdown();
 }

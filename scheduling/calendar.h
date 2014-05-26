@@ -15,6 +15,8 @@ class Calendar {
 		Calendar(float frequency, const std::shared_ptr<Engine>& engine);
 		~Calendar();
 
+		const std::shared_ptr<Engine>& get_engine();
+
 		void run();
 		void finish();
 

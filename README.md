@@ -11,6 +11,9 @@ Usage --
 // std::shared_ptr
 #include <memory>
 
+// sleep()
+#include <unistd.h>
+
 #include "../scheduling/scheduling.h"
 #include "../scheduling/calendar.h"
 
@@ -26,11 +29,16 @@ int main() {
 
     s->add_calendar(cal_e);
 
-    // start the scheduler
+    // start the scheduler -- calls e->ignite() and starts e->cycle()
     s->ignite();
 
-    // placeholder function for future expansion
+    // placeholder for future expansion
+    // should wait for SIG_INT (or similar) to exit
+    // cf. http://bit.ly/1nqOnyd
     s->cycle();
+
+    // in the meantime, using this
+    sleep(1);
 
     // signal to the scheduler to call e->shutdown()
     s->shutdown();
