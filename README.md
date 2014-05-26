@@ -33,3 +33,27 @@ SPP is designed to be an easy-to-use schedular. Scheduling in SPP revolves aroun
 For example -- we would want to run certain graphics-related functions at the screen refresh rate (e.g. 60 Hz). In order to do this, we simply create an `class GraphicsEngine : public Engine { ... };` class that overrides the `Engine::cycle()` function. We then load the graphics engine into our schedular as per the above syntax and start up the schedular.
 
 -- M
+
+Bonus: a Makefile!
+
+```
+CC=g++
+CFLAGS=-Wall -Werror -O3 -std=c++11
+LIBS=-lm -lpthread
+
+SOURCES=*cc
+OBJECTS=$(SOURCES:.cc=.o)
+
+EXECUTABLE=spp.app
+
+all: $(SOURCES) $(EXECUTABLE)
+
+$(EXECUTABLE): $(OBJECTS)
+	$(CC) $(CFLAGS) $(OBJECTS) -o $@ $(LIBS)
+
+test: clean $(EXECUTABLE)
+	./$(EXECUTABLE)
+
+clean:
+	rm -f $(EXECUTABLE) *o
+```
