@@ -6,6 +6,8 @@ Scheduler Plus Plus -- basic C++ scheduler
 Usage --
 
 ```
+/* examples/spp.cc */
+
 // std::shared_ptr
 #include <memory>
 
@@ -46,6 +48,8 @@ For example -- we would want to run certain graphics-related functions at the sc
 Bonus: a Makefile!
 
 ```
+# example/Makefile
+
 CC=g++
 
 # yadda yadda yadda beware -O3 optimizations and threading
@@ -54,7 +58,7 @@ CFLAGS=-Wall -Werror -O3 -std=c++11
 LIBS=-lm -lpthread
 
 # remember to add all sources from subdirectories as well here
-SOURCES=*cc
+SOURCES=*cc ../base/*cc ../scheduling/*cc
 
 OBJECTS=$(SOURCES:.cc=.o)
 
