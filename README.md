@@ -6,7 +6,7 @@ Scheduler++ -- basic C++ scheduler
 Usage --
 
 ```
-/* examples/spp.cc */
+/* example/spp.cc */
 
 // std::shared_ptr
 #include <memory>
