@@ -3,7 +3,8 @@ CC=g++
 # yadda yadda yadda beware -O3 optimizations and threading
 CFLAGS=-Wall -Werror -O3 -std=c++11
 
-LIBS=-lm -lpthread
+# std::thread relies on the pthread lib          
+LIBS=-lpthread
 
 # remember to add all sources from subdirectories as well here
 SOURCES=*cc ../base/*cc ../scheduling/*cc
