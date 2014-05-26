@@ -38,10 +38,10 @@ Bonus: a Makefile!
 
 ```
 CC=g++
-CFLAGS=-Wall -Werror -O3 -std=c++11
+CFLAGS=-Wall -Werror -O3 -std=c++11					# yadda yadda yadda beware -O3 optimizations and threading
 LIBS=-lm -lpthread
 
-SOURCES=*cc
+SOURCES=*cc								# remember to add all sources from subdirectories as well here
 OBJECTS=$(SOURCES:.cc=.o)
 
 EXECUTABLE=spp.app
@@ -52,8 +52,8 @@ $(EXECUTABLE): $(OBJECTS)
 	$(CC) $(CFLAGS) $(OBJECTS) -o $@ $(LIBS)
 
 test: clean $(EXECUTABLE)
-	./$(EXECUTABLE)
+	./$(EXECUTABLE) --test						# remember to run unit tests
 
 clean:
-	rm -f $(EXECUTABLE) *o
+	rm -f $(EXECUTABLE) *.o
 ```
