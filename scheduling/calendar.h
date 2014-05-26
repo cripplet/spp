@@ -7,6 +7,7 @@
 
 class Calendar {
 	public:
+		// cf. http://bit.ly/1nK6RIb
 		Calendar(float frequency, const std::shared_ptr<Engine>& engine);
 		~Calendar();
 
