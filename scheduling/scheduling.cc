@@ -24,7 +24,6 @@ void SchedulingEngine::cycle() {
 }
 
 void SchedulingEngine::shutdown() {
-	this->signal = 0;
 	for(uint32_t i = 0; i < this->calendars.size(); i++) {
 		this->calendars.at(i)->finish();
 	}

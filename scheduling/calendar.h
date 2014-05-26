@@ -18,7 +18,7 @@ class Calendar {
 		void run();
 		void finish();
 
-	public:
+	private:
 		float timestep;			// time in seconds between each step
 		std::shared_ptr<Engine> engine;
 
