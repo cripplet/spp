@@ -1,3 +1,5 @@
+#include "engine.h"
+
 Engine::Engine() {
 	this->status = status_codes::UNINITIALIZED;
 	this->signal = 1;
